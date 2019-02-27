@@ -16,11 +16,12 @@
 
 buildscript {
     repositories {
+        google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+        classpath 'com.android.tools.build:gradle:3.3.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
     }
 }
 
@@ -34,23 +35,21 @@ apply plugin: 'com.jfrog.bintray'
 apply plugin: 'maven-publish'
 
 repositories {
-    maven {
-        url "https://maven.google.com"
-    }
+    google()
+    jcenter()
 }
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 28
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 25
+        minSdkVersion 16
+        targetSdkVersion 28
     }
 }
 
 dependencies {
-    provided 'com.android.support:support-core-ui:25.4.0'
+    compileOnly 'androidx.legacy:legacy-support-core-ui:1.0.0'
 }
 
 bintray {
